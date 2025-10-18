@@ -6,7 +6,7 @@ metadata:
   labels:
     app: python-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: python-app
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: davidbulke/py-app:1e08551e-22
+        image: davidbulke/py-app:28e20b6d-19
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
