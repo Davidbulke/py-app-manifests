@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: python-app
   namespace: default
@@ -21,14 +21,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
-          name: http
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "100m"
-          limits:
-            memory: "256Mi"
-            cpu: "200m"
         livenessProbe:
           httpGet:
             path: /
@@ -41,3 +33,11 @@ spec:
             port: 5000
           initialDelaySeconds: 5
           periodSeconds: 5
+  strategy:
+    canary:
+      steps:
+      - setWeight: 25
+      - pause: {duration: 60}
+      - setWeight: 50
+      - pause: {duration: 60}
+      - setWeight: 100
