@@ -14,7 +14,7 @@ spec:
     namespace: default
   syncPolicy:
     automated:
-      prune: true      # Auto-delete resources not in Git
+      prune: true      # Auto-delete resources not in Gitt
       selfHeal: true   # Auto-sync when drift detected
       allowEmpty: false
     syncOptions:
