@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: davidbulke/py-app:6f4e9f60-2
+        image: davidbulke/py-app:6f4e9f60-3
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
